@@ -1,0 +1,137 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Accept Applications";
+}
+@model List<StudentApplication>
+<style>
+     .table {
+         width: 75%;
+     }
+
+     .status-true {
+         background-color: green;
+         color: white;
+         padding: 5px 10px;
+         border-radius: 4px;
+     }
+
+     .status-false {
+         background-color: red;
+         color: white;
+         padding: 5px 10px;
+         border-radius: 4px;
+     }
+
+     .notedone {
+         background-color: green;
+         color: white;
+         padding: 5px 10px;
+         border: none;
+         border-radius: 4px;
+     }
+
+     tr {
+         text-align: center;
+         align-items: center;
+     }
+
+     thead {
+         background-color: green;
+     }
+
+     tbody{
+        background-color: lightgreen;
+     }
+
+     .scrollable-dropdown {
+         max-width: 150px;
+        background-color: #27ae60;
+
+     }
+
+    table {
+        border-collapse: collapse;
+        border: 2px solid #0a8b6b;
+        width: 75%;
+    }
+
+    th{
+        border: 1px solid #0a8b6b;
+        padding: 3px;
+    }
+    td{
+        border: 1px solid #0a8b6b;
+        padding: 3px;
+    }
+     .notedone:hover,
+     .status-true:hover,
+     .status-false:hover {
+         opacity: 0.8;
+         cursor: pointer;
+     }
+</style>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Program</th> 
+            <th scope="col">graduates</th>
+            <th scope="col">Status</th>
+            <th scope="col">Notes</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var StudentApplication in Model)
+        {
+            <tr>
+                <th scope="row">@StudentApplication.ID</th>
+                <td>@StudentApplication.Name</td>
+                <td>@StudentApplication.Email</td>
+                <td>@StudentApplication.LebanonPhoneNumber</td>
+                <td>@StudentApplication.ProgramName</td>
+                <td>@StudentApplication.Graduates</td>
+                <td>
+                    @if (StudentApplication.ApplicationStatus)
+                    {
+                        <span class="status-true">✓</span>
+                    }
+                    else
+                    {
+                        <form method="post" asp-action="UpdateApplicationStatus">
+                            <input type="hidden" name="appid" value=@StudentApplication.ID />
+                            <button class="status-false" type="submit">x</button>
+                        </form>
+                    }
+                </td>
+                <td>
+                        @if (string.IsNullOrEmpty(StudentApplication.ApplicationNotes))
+                        {
+                        <form method="post" asp-action="UpdateApplicationNotes">
+                            <input type="hidden" name="appid" value="@StudentApplication.ID" />
+                            <select name="selectedNote" class="scrollable-dropdown">
+                                <option value="Pending Test Scores">Pending Test Scores</option>
+                                <option value="Ineligible Due to Prerequisites">Ineligible Due to Prerequisites</option>
+                                <option value="Incomplete Application">Incomplete Application</option>
+                                <option value="Possible Transfer Credits">Possible Transfer Credits</option>
+                                <option value="Accepted with Remedial Test Required">Accepted with Remedial Test Required</option>
+                            </select>
+                            <button class="notedone" type="submit">DONE</button>
+                        </form>
+                        }
+                        else
+                        {
+                            @StudentApplication.ApplicationNotes
+                        }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

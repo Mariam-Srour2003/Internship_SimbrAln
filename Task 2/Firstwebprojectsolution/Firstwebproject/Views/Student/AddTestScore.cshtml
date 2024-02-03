@@ -1,0 +1,73 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Test Scores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            color: #008000;
+        }
+
+        form {
+            background-color: #e0ffe0;
+            border: 1px solid #008000;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            color: #008000;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #008000;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            background-color: #008000;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #006600;
+            }
+    </style>
+</head>
+<body>
+    <h1>Enter Student Test Scores</h1>
+    <form asp-action="AddTestScore" method="post">
+        <label for="student_id">Student ID:</label>
+        <input type="text" id="student_id" name="StudentId" required><br><br>
+
+        <label for="test_id">Test ID:</label>
+        <input type="text" id="test_id" name="TestId" required><br><br>
+
+        <label for="test_score">Test Score:</label>
+        <input type="number" id="test_score" name="TestScore" min="0" max="100" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

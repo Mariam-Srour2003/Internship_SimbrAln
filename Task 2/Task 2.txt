@@ -1,0 +1,1 @@
+Write the code of what was required in task 1" asp.net core 6 mvc"

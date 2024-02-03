@@ -1,0 +1,19 @@
+﻿@model List<Student>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student List</title>
+</head>
+<body>
+    <h1>Student List</h1>
+    <ul>
+        @foreach (var student in Model)
+        {
+            <li>@student.Id</li>
+            <li>@student.Name</li>
+            <li>@student.Email</li>
+        }
+    </ul>
+</body>
+</html>

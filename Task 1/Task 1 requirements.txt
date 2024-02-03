@@ -1,0 +1,8 @@
+Admissions: This unit handles the application and enrollment processes for new
+students, including managing applications, tracking application status, and
+communicating with prospective students.
+
+Required:
+RSD (requirements specification document)
+E-R Diagram
+DB Structure

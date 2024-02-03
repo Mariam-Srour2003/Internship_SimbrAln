@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - Firstwebproject</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/Firstwebproject.styles.css" asp-append-version="true" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+	<style>
+		#left-sidebar{
+			z-index: 1000;
+			width: 20%;
+			height: 100%;
+			overflow-y: auto;
+			overflow-x: hidden;
+			float:left;
+		}
+
+
+		#right-besidesidebar{
+			width:80%;
+			float:right;
+		}
+
+		.user-profile {
+			display: flex;
+			align-items: center;
+			margin-right:-50%;
+			margin-left:55%;
+		}
+
+		.profile-picture {
+			width: 40px; 
+			height: 40px;
+			border-radius: 50%; 
+			margin-right: 8px; 
+		}
+
+		.container-fluid{
+			margin-left:-25%;
+		}
+		.username {
+			font-weight: bold; 
+			margin-right: 40px;
+		}
+
+		.SIDEBAR li{
+			position: relative;
+			line-height: 20px;
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			margin-left:-6%;
+		}
+
+		.SIDEBAR li a {
+			display: block;
+			color: #2B2B2A;
+			font-size:larger;
+			text-decoration: none;
+			padding: 15px 15px 15px 15px;
+		}
+
+		.SIDEBAR li:hover a {
+			background-color: #CEE7BD
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+
+			<div class="container-fluid">
+				<a href="https://www.usal.edu.lb/" target="_blank">
+					<img src="https://drive.google.com/uc?export=view&id=1bZxt1zzMhR3S6emRXZmMYuqSnbIq2VUC" alt="Firstwebproject" width="100" height="50"  />
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="user-profile">
+					<img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="User Profile Picture" class="profile-picture" />
+					<span class="username">Username</span>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div>
+		<div id="left-sidebar">
+			<ul class="SIDEBAR">
+
+				<li class="DashBoard active">
+					<a id="DashBoardx" asp-area="" asp-controller="Home" asp-action="Dashboard">
+						<i class="fa fa-dashboard"></i>
+						<span class="title">DashBoard</span>
+						<span class="selected"></span>
+					</a>
+				</li>
+
+				<li class="EditPassword">
+					<a id="EditPasswordx" asp-area="" asp-controller="Home" asp-action="EditPasswordSubmit">
+						<i class="fa fa-lock"></i>
+						<span class="title">EditPassword</span>
+						<span class="selected"></span>
+					</a>
+
+				</li>
+
+				<li class="MySchedule">
+					<a id="MySchedulex" asp-area="" asp-controller="Home" asp-action="MySchedule">
+						<i class="ion ion-clock"></i>
+						<span class="title">MySchedule</span>
+						<span class="selected"></span>
+					</a>
+
+				</li>
+
+				<li class="MyPayments">
+					<a id="MyPaymentsx" asp-area="" asp-controller="Home" asp-action="MyPayments">
+						<i class="fa fa-money"></i>
+						<span class="title">MyPayments</span>
+						<span class="selected"></span>
+					</a>
+
+				</li>
+
+				<li class="MyApplications">
+					<a id="MyApplicationsx" asp-area="" asp-controller="Home" asp-action="MyApplications">
+						<i class="fa fa-files-o"></i>
+						<span class="title">MyApplications</span>
+						<span class="selected"></span>
+					</a>
+
+				</li>
+
+				<li class="Register">
+					<a id="Registerx" asp-area="" asp-controller="Home" asp-action="Register">
+						<i class="fa fa-list"></i>
+						<span class="title">Register</span>
+						<span class="selected"></span>
+					</a>
+
+				</li>
+
+				<li class="StudentPlan">
+					<a id="StudentPlanx" asp-area="" asp-controller="Home" asp-action="StudentPlan">
+						<i class="fa fa-list-alt"></i>
+						<span class="title">StudentPlan</span>
+						<span class="selected"></span>
+					</a>
+
+				</li>
+				<li class="AdminPage">
+					<a id="AdminPagex" asp-area="" asp-controller="Home" asp-action="AdminPage">
+						<i class="fa fa-shield" aria-hidden="true"></i>
+						<span class="title">Admin Page</span>
+						<span class="selected"></span>
+					</a>
+
+				</li>
+				<li class="USALEmail">
+					<a id="USALEmailx" asp-area="" asp-controller="Home" asp-action="USALEmail">
+						<i class="glyphicon glyphicon-envelope"></i>
+						<span class="title">USAL Email</span>
+						<span class="selected"></span>
+					</a>
+
+				</li>
+			</ul>
+		</div>
+		<div class="right-besidesidebar">
+			<main role="main" class="pb-3">
+				@RenderBody()
+			</main>
+		</div>
+	</div>
+
+	
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

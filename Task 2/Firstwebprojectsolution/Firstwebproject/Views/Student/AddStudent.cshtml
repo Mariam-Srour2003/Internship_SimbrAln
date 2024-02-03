@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "AddStudent";
+}
+@model List<Student>
+<style>
+    .addstudentform {
+        width: 80%;
+    }
+
+    .form-group {
+        float: right;
+        width: 75%;
+    }
+
+    .addstudentform {
+        width: 80%;
+        margin-left: 20%;
+        padding: 20px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn-primary {
+        background-color: green;
+        border-color: green;
+    }
+
+        .btn-primary:hover {
+            background-color: darkgreen;
+            border-color: darkgreen;
+        }
+</style>
+
+<h2>Add Student</h2>
+<div class="addstudentform">
+    <form asp-action="AddStudent" method="post">
+        <div class="form-group">
+            <label for="Name">Name:</label>
+            <input type="text" class="form-control" id="Name" name="Name" required>
+        </div>
+        <div class="form-group">
+            <label for="Email">Email:</label>
+            <input type="email" class="form-control" id="Email" name="Email" required>
+        </div>
+        <div class="form-group">
+            <label for="Phone">Phone:</label>
+            <input type="text" class="form-control" id="Phone" name="Phone" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Student</button>
+    </form>
+</div>

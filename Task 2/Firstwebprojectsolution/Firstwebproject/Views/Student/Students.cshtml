@@ -1,0 +1,83 @@
+﻿@model List<Student>
+<style>
+    .table{
+        width:75%;
+    }
+    .green-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: lightgreen;
+        color: inherit; 
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+    }
+
+    tr {
+        text-align: center;
+        align-items: center;
+    }
+
+    thead {
+        background-color: green;
+    }
+
+    tbody {
+        background-color: lightgreen;
+    }
+
+    .scrollable-dropdown {
+        max-width: 150px;
+        background-color: #27ae60;
+    }
+
+    table {
+        border-collapse: collapse;
+        border: 2px solid #0a8b6b;
+        width: 75%;
+    }
+
+    th {
+        border: 1px solid #0a8b6b;
+        padding: 3px;
+    }
+
+    td {
+        border: 1px solid #0a8b6b;
+        padding: 3px;
+    }
+        .green-button:hover {
+            color: white;
+            background-color: darkgreen;
+        }
+</style>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Account</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <th scope="row">@student.Id</th>
+                <td>@student.Name</td>
+                <td>@student.Email</td>
+                <td>@student.Phone</td>
+                <td>@student.Account</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-area="" asp-controller="Student" asp-action="AddStudent" class="green-button">
+    Add Student
+</a>
+
+<a asp-area="" asp-controller="Student" asp-action="AddTestScore" class="green-button">
+    Add Test Score
+</a>

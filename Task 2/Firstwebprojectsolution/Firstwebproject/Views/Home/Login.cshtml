@@ -1,0 +1,116 @@
+﻿@*
+	For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+	ViewData["Title"] = "login";
+}
+<html>
+<head>
+	<style>
+		#left-sidebar {
+			z-index: 1000;
+			width: 0%;
+			height: 100%;
+			overflow-y: auto;
+			overflow-x: hidden;
+			float: left;
+		}
+		.right-container{
+			margin-top: 5%;
+			text-align: center;
+		}
+		.login-card{
+			margin-top: 30%;
+			box-shadow: 0 10px 10px 0 rgba(0, 100, 0, 0.9), 0 6px 20px 0 rgba(0, 100, 0, 0.9);
+			border: 2px solid #0a8b6b;
+			background-color: white;
+			display: inline-block;
+			padding: 0px 20px 10px 20px;
+			margin: 30px;
+			color: #5b5c6c;
+		}
+
+		.inputt{
+			border: 0px solid #0a8b6b;
+			background-color: white;
+			text-align:center;
+		}
+
+		.inputtt {
+			border: 2px solid #0a8b6b;
+			background-color: white;
+			text-align: center;
+		}
+
+		.button  {
+			text-align:right;
+			appearance: none;
+			backface-visibility: hidden;
+			background-color: #27ae60;
+			border-radius: 8px;
+			border-style: none;
+			box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+			box-sizing: border-box;
+			color: #fff;
+			cursor: pointer;
+			display: inline-block;
+			font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+			font-size: 12px;
+			font-weight: 600;
+			letter-spacing: normal;
+			line-height: 1.5;
+			outline: none;
+			overflow: hidden;
+			padding: 13px 20px;
+			position: relative;
+			text-decoration: none;
+			transform: translate3d(0, 0, 0);
+			transition: all .3s;
+			user-select: none;
+			-webkit-user-select: none;
+			touch-action: manipulation;
+			vertical-align: top;
+			white-space: nowrap;
+		}
+
+			.button:hover {
+				background-color: #1e8449;
+				opacity: 1;
+				transform: translateY(0);
+				transition-duration: .35s;
+			}
+
+			.button:active {
+				transform: translateY(2px);
+				transition-duration: .35s;
+			}
+
+			.button :hover {
+				box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+			}
+			#textt{
+				text-align:left;
+			}
+	</style>
+</head>
+<body>
+	<div class="right-container">
+		<div class="login-card">
+			<h3 id="textt">Sign in to your account</h3> 
+			<p id="textt">Please enter your name and password to log in.</p>
+			<form class="login-form">
+				<div class="inputt">
+					<i class="fa fa-user"></i>
+					<input class="inputtt" type="text" placeholder="User ID" />
+				</div><br><br>
+				<div class="inputt">
+					<i class="fa fa-lock"></i>
+					<input class="inputtt"  type="password" placeholder="Password" />
+				</div><br>
+				<button class="button" role="button">LOGIN</button>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>
